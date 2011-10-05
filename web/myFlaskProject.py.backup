@@ -1,0 +1,108 @@
+#coding: UTF-8
+import csv
+
+from flask import Flask, request, session, g, redirect, url_for, abort, \
+     render_template, flash
+
+#config
+DATABASE = 'data.csv'
+
+app = Flask(__name__)
+#app.config.from_object(__name__)
+#app.config.from_envvar('FLASKR_SETTINGS', silent=True)
+              
+
+@app.route("/")
+def show_projects():
+    show_db = [] #Denna variabel kommer användas för datan som skickas till Jinja2
+    db = read_db()
+    #db = conv_to_utf8(db)
+    #db = search_db(db, 'project_no', '2')
+    show_db.append(db[0].keys()) #Lägger till nycklarna först i listan
+    for rows in db:
+        show_db.append(rows.values())
+    #print show_db
+    
+    #db = verify_db(db)
+    return render_template('show_entries.html', entries=show_db)
+
+
+if __name__ == '__main__':
+    app.run()
+
+
+def read_db():
+    db =[]
+    f = open(DATABASE, 'rt')
+    reader = csv.DictReader(f)
+    for rows in reader:
+        db.append(rows)
+    return db
+
+  
+'''   
+def conv_to_utf8(data, dialect=csv.excel, **kwargs): #Konverterar .csv data till UTF-8
+    conv = csv.reader(data,dialect=csv.excel, **kwargs)
+    yield [unicode(cell, 'utf-8') for cell in conv]
+'''    
+
+def search_db(db, field, value):
+    x = [rows for rows in db if rows[field] == value]
+    #x = filter(lambda x: x == value,map(lambda z: z[field], db))
+    return x
+
+
+
+
+
+
+
+
+
+
+
+'''
+def read_db():
+    db = []
+    file1 = conv_to_utf8(open(DATABASE))
+    for items in file1: #Läser in databasen i en lista
+        db.append(items)
+    return db
+'''
+
+'''
+
+def verify_db(db): #Kolla så att listan ser ut som den ska!
+   # print "Before:"
+   # print db
+    proj_id = []
+    for entry in db:               
+        proj_id.append(entry[0])
+   # print proj_id
+    print [x for x in db]
+    print [y for y in proj_id if [x for x in db if x[0] == y]]
+    db = [x for x in db if [y for y in proj_id if not x[0] == y or x[0] != "proj_id"]]
+   # print "After:"
+   # print db
+    return db
+'''    
+        
+    
+''' 
+db = [
+    {'name': 'Jakob', 'position': 'assistant'}, 
+    {'name': 'Åke', 'position': 'assistant'}, 
+    {'name': 'Ola', 'position': 'examiner'},
+    {'name': 'Henrik', 'position': 'assistant'}
+    ]
+    
+        
+
+
+def check_match(x):
+    pass
+
+
+print dbsearch(db, 'position', 'assistant')
+'''
+

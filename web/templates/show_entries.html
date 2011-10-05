@@ -1,0 +1,18 @@
+{% block body %}
+    <form action="{{ url_for('show_projects') }}" method=post class=entries>
+    </form>
+    <ul class=entries>
+    <table bgcolor = "brown" border="1">
+      {% for entry in entries %}
+         <tr>
+	   {% for item in entry %}
+	       <td> {{ item }}</td>
+	   
+         
+           {% else %}
+      	     OJOJ!
+	   {% endfor %}
+      {% endfor %}
+      </table>
+	 </ul>
+{% endblock %}
