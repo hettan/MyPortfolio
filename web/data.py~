@@ -2,9 +2,17 @@
 import csv #För .csv filhantering
 import operator #För sorteringen
 
+from flask import Flask, request, session, g, redirect, url_for, abort, \
+     render_template, flash
+
 #config
 DATABASE = 'data.csv'
 globdb = None
+app = Flask(__name__)
+
+
+@app.route("/")
+
 
 def init():
     global globdb #globala databasen
@@ -112,3 +120,6 @@ def retrieve_technique_stats():
             db.append({'count':counter, 'name':tec,'projects':projlist})
         return(0, db)     
     else: return (1, None)
+
+if __name__ == '__main__': #MÅSTE TYDLIGEN VARA LÄNGST NER!!!
+    app.run()
