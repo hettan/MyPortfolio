@@ -1,0 +1,13 @@
+{% block body %}
+<table cellpadding="5">
+  {% for dict in data %}
+  <tr>
+  {% for value in dict%}
+    <td>
+    {{ dict[value]  }}
+    </td>
+  {% endfor %}
+    </tr>
+  {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% block body %}
+<table cellpadding="20">
+  {% for value in data%}
+    <td>
+    {{ value }}
+    </td>
+  {% endfor %}
+    <tr>
+  {% for value in data%}
+    <td>
+    {{ data[value] }}
+    </td>
+  {% endfor %}
+    </tr>
+</table>
+{% endblock %}
