@@ -1,0 +1,12 @@
+{% block body %}
+<body>
+	<table cellpadding=2>
+	<tr><td><u>Project name</u></td>
+		<td><u>Short description</u></td></tr>
+		{% for dict in data %}
+			<tr><td>{{dict['project_name']}}</td>
+				<td>{{dict['short_description']}}</td></tr>
+		{% endfor %}
+	</table>
+</body>
+{% endblock %}

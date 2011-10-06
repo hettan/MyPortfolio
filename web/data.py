@@ -86,7 +86,7 @@ def retrieve_projects(sort_by='start_date', sort_order='asc', techniques=None, s
                         if not z in db:
                             db.append(z)
 #sort_by & sort_order
-            if sort_order == 'acs':
+            if sort_order == 'asc':
                 db.sort(key=operator.itemgetter(sort_by))
             elif sort_order == 'desc': 
                 db.sort(key=operator.itemgetter(sort_by), reverse=True)

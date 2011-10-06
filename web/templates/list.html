@@ -1,0 +1,56 @@
+{% extends "index.html" %}
+{% block body %}
+<body>
+  <table><tr><td>
+	<b>Sorting</b></td></tr>
+  <form method="post" action="/list" id="myform">
+    <tr><td>
+    <select name="sort_by_value">
+      <option value="project_name">Project name</option> 
+      <option value="short_description">Description</option>
+    </select>
+    <select name="sort_order">
+      <option value="asc">Asc</option>
+      <option value="desc">Desc</option>
+    </select>
+    </td></tr>
+    <tr><td><br><br>
+    <b>Searching</b></td></td>
+    <tr><td>
+    <input type="text" name="search">
+    <input type="submit" name="ok" value="sort">
+    </td></tr>
+    <tr><td>
+    <a href="#" onclick="javascript: document.getElementById('checkboxes').style.visibility='visible'">Advanced search</a>
+    </td></tr></table>
+    <table id="checkboxes" style="visibility: hidden">
+    <tr><td>
+    <input type="checkbox" name="search_field[1]" checked="checked" value="project_name">Project name
+    <input type="checkbox" name="search_field[2]" value="project_no">Project number
+    <input type="checkbox" name="search_field[3]" value="start_date">Start date
+    <input type="checkbox" name="search_field[4]" value="end_date">End date
+    </td></tr><tr><td>
+    <input type="checkbox" name="search_field[5]" value="course_id">Course code
+    <input type="checkbox" name="search_field[6]" value="course_name">Course name
+    <input type="checkbox" name="search_field[7]" value="academic_credits">Academic credits
+    <input type="checkbox" name="search_field[8]" value="techniques_used">Techniques used
+    </td></tr>
+    <tr><td>
+    <input type="checkbox" name="search_field[9]" value="short_description">Short description
+    <input type="checkbox" name="search_field[10]" value="long_description">Long description
+    <input type="checkbox" name="search_field[11]" value="group_size">Group size
+    <input type="checkbox" name="search_field[12]" value="external_link">External links
+    <input type="checkbox" name="search_field[13]" value="lulz_had">Comments
+    </td></tr>
+  </form>
+  </table><br><br>
+	<table cellpadding=2>
+	<tr><td><u>Project name</u></td>
+	<td><u>Short description</u></td></tr>
+		{% for dict in data %}
+			<tr><td><a href="/project/{{dict['project_no']}}">{{dict['project_name']}}</a></td>
+				<td>{{dict['short_description']}}</td></tr>
+		{% endfor %}
+	</table>
+</body>
+{% endblock %}
