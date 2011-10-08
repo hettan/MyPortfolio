@@ -1,1 +1,29 @@
-"myFirstFlaskProject!"
+Project_name:MyPortfolio
+Author:Jacob Holm
+E-mail: jacobholm89@gmail.com
+
+
+System package:
+The program is written in Python with Flask compability using Jinja2 as a html template system.
+
+/web/myFlaskProject.py is the main python program, this is the file you run to start.
+/web/data.py is the API for handling the database.
+/web/data.csv is the database written in csv
+/web/templates is the folder for all templates used on the web
+/web/style is a folder containing .css files used in the project to implement styles in templates
+/web/images is a folder used for storing images used in the project
+
+
+Installation guide:
+This program is using Python, Flask and Jinja2. We need to make sure these are installed for the program to work.
+
+Follow the guide how to install Python on:
+Follow the guide how to install Flask on:
+Follow the guide how to install Jinja2 on:
+
+copy MyPortfolio folder to your home directory.
+1.	In the terminal, map to MyProject/web (using cd /MyProject/web).
+2.	start the program using commandline "python myFlaskProject.py" (without any "")
+
+
+
