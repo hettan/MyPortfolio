@@ -19,13 +19,14 @@ def show_project(proj_id):
     data.init()
     return render_template('project.html', data = data.lookup_project(int(proj_id))[1])
 
-@app.route("/list", methods=['GET','POST'])
+@app.route("/list/", methods=['GET','POST'])
 def list_projects():
     global sort_order
     data.init()
     sort_order = "asc"
     sort_by = "project_name"
     search_fields = []
+    search = None
     if request.method == "POST":
        # try
         try:
@@ -34,6 +35,8 @@ def list_projects():
                 sort_by = request.form['sort_by_value']
                 sort_order = request.form['sort_order']   
                 #Search
+                search = request.form['search']
+                search = search.encode('ascii')
                 for i in xrange(1, 14): 
                     try:
                         x = 'search_field['+ str(i)+']'
@@ -41,9 +44,10 @@ def list_projects():
                     except:
                         pass
         except:
-            return "hej"
+            return "error"
+    dbdata = data.retrieve_projects(sort_order=sort_order, sort_by=sort_by, search_fields=search_fields, search=search)
+    return render_template('list.html',data = dbdata[1])
 
-    return render_template('list.html', data = data.retrieve_projects(sort_order=sort_order, sort_by=sort_by, search_fields=search_fields)[1])
       #onChange="javascript: submit()
     
     
