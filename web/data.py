@@ -2,11 +2,10 @@
 import csv #For the .csv data
 import operator #Used in the sorting
 
-#config
-DATABASE = 'data.csv'
-globdb = None
+DATABASE = 'data.csv' #Defines the name of the datafile
+globdb = None #Storing the database
 
-def init():
+def init(): #Initialize the database
     global globdb #global database
     globdb = []
     f = open(DATABASE)
@@ -37,12 +36,12 @@ def format_values(db): #Format database values according to rules in this functi
     return db
    
 
-def project_count():
+def project_count(): #Count all projects
     if globdb != None:
         return (0, len(globdb))
     else: return (1 , None)
 
-def lookup_project(search_id):
+def lookup_project(search_id): #Lookup a specified project
     if globdb != None:
         db = globdb
         try:
@@ -51,13 +50,12 @@ def lookup_project(search_id):
         except: return (2, None)
     else: return (1, None)
 
-def retrieve_techniques():
+def retrieve_techniques(): #Lists all techniques
     if globdb != None:
         techs = []
-        temp = []
+        temp = [] #Used as a temporary variable
         for rows in globdb:
             temp.append(rows['techniques_used'])
-        #techs = [rows['techniques_used'] for rows in globdb]
         for i in temp:
             for z in i:
                 if not z in techs:
@@ -67,7 +65,7 @@ def retrieve_techniques():
         return (0, techs)
     else: return (1, None)
 
-def retrieve_projects(sort_by='start_date', sort_order='asc', techniques=None, search=None, search_fields=None):
+def retrieve_projects(sort_by='start_date', sort_order='asc', techniques=None, search=None, search_fields=None): #Search/sort all projects matching criterias
     if globdb != None:
         try:
             db = globdb
@@ -107,7 +105,7 @@ def retrieve_projects(sort_by='start_date', sort_order='asc', techniques=None, s
         except: return(2, None)
     else: return (1, None)
 
-def retrieve_technique_stats():
+def retrieve_technique_stats(): #Check the stats for each used technique
     if globdb != None:
         db = []
         techs = retrieve_techniques()[1]
