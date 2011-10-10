@@ -1,23 +1,23 @@
 #coding: UTF-8
-import csv #För .csv filhantering
-import operator #För sorteringen
+import csv #For the .csv data
+import operator #Used in the sorting
 
 #config
 DATABASE = 'data.csv'
 globdb = None
 
 def init():
-    global globdb #globala databasen
+    global globdb #global database
     globdb = []
     f = open(DATABASE)
     reader = csv.DictReader(f)
     for rows in reader:
         globdb.append(rows)
-    globdb = conv_to_unicode(globdb)#Konvertera till UTF-8
-    globdb = format_values(globdb)#Formatera databasen
+    globdb = conv_to_unicode(globdb)#Convert to UTF-8
+    globdb = format_values(globdb)#Format database to correct format
   
  
-def conv_to_unicode(data): #Konverterar listan med dicts till UTF-8
+def conv_to_unicode(data): #Convert all dicts to UTF-8
     converted_db = []
     for rows in data:
         conv_dict = {}
@@ -26,7 +26,7 @@ def conv_to_unicode(data): #Konverterar listan med dicts till UTF-8
         converted_db.append(conv_dict)    
     return converted_db
 
-def format_values(db): #Formaterar databasvärden efter regler
+def format_values(db): #Format database values according to rules in this function
     for i in xrange(0, len(db)):
         db[i]['project_no'] = int(db[i]['project_no'])
         db[i]['group_size'] = int(db[i]['group_size'])
@@ -72,20 +72,33 @@ def retrieve_projects(sort_by='start_date', sort_order='asc', techniques=None, s
         try:
             db = globdb
             #techniques
+            for field in search_fields: #If techniques is being searched for, add techniques as a parameter aswell
+                if field == 'techniques_used':
+                    techniques = []
+                    techniques.append(search)
             if techniques != None and techniques != []:
                 db = [rows for rows in db if len(set(rows['techniques_used']) & set(techniques)) == len(techniques)]
+                db_tech = db #db_tech is used for the search
+            else: db_tech=[]
+        
             #search & search_fields
             if search != None and search_fields != None:
                 mergedb = []
-                # Första sorteringen är för int i dict
-                db = [rows for rows in db if [value for value in search_fields if type(rows[value]) == type(1) and str(rows[value]) == search.lower()]]
-                # Andra sorteringen är för strängar i dict
+                # First sorting is for integers in dict
+                db = [rows for rows in globdb if [value for value in search_fields if type(rows[value]) == type(1) and str(rows[value]) == search.lower()]]
+                # Second sorting is for strings in dict
                 mergedb = [rows for rows in globdb if [value for value in search_fields if type(rows[value]) == type(unicode("string", 'utf-8')) and rows[value].lower() == unicode(search.lower(), 'utf-8')]]
-                for i in mergedb: #Lägg till alla i samma lista, db
-                    for z in mergedb:
-                        if not z in db:
-                            db.append(z)
-#sort_by & sort_order
+             #Add the results to main db
+                for dic in mergedb:
+                    if not dic in db:
+                        db.append(dic)
+
+            #Add the search from techniques_used aswell
+                for dic in db_tech:
+                        if not dic in db:
+                            db.append(dic)
+
+            #sort_by & sort_order
             if sort_order == 'asc':
                 db.sort(key=operator.itemgetter(sort_by))
             elif sort_order == 'desc': 

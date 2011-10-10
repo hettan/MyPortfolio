@@ -1,7 +1,6 @@
 <html>
 <head>
 <title>MyPortfolio</title>
-   <link rel="stylesheet" href="style/style.css">
 </head>
 <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" >
 <table id="Table_01" width="1024" height="769" border="0" cellpadding="0" cellspacing="0" align="center">
@@ -34,17 +33,23 @@
 			<img src="{{url_for('static',filename='images/layout/MyPortfolio_11.gif')}}" width="53" height="54" alt=""></td>
 	</tr>
 	<tr>
-		<td rowspan="3" width="77" style="background-image: url('{{url_for('static',filename='images/layout/MyPortfolio_12.gif')}}'); background-repeat: repeat-y;">
-		</td>
-		<td rowspan="3" width="77" style="background-image: url('{{url_for('static',filename='images/layout/MyPortfolio_13.gif')}}'); background-repeat: repeat-y;"></td>
-		<td colspan="2" width="77" style="background-image: url('{{url_for('static',filename='images/layout/MyPortfolio_14.gif')}}'); background-repeat: repeat-y;" rowspan="3"></td>
-		<td colspan="5" width="563" height="45" style="background-image: url('{{url_for('static',filename='images/layout/MyPortfolio_15.gif')}}'); background-repeat: no-repeat;"></td>
-		<td colspan="2" rowspan="3" width="77" style="background-image: url('{{url_for('static',filename='images/layout/MyPortfolio_16.gif')}}'); background-repeat: repeat-y;"></td>
-		<td rowspan="3" width="77" style="background-image: url('{{url_for('static',filename='images/layout/MyPortfolio_17.gif')}}'); background-repeat: repeat-y;"></td>
-		<td rowspan="3" width="77" style="background-image: url('{{url_for('static',filename='images/layout/MyPortfolio_18.gif')}}'); background-repeat: repeat-y;"></td>
+		<td rowspan="3">
+			<img src="{{url_for('static',filename='images/layout/MyPortfolio_12.gif')}}" width="77" height="500" alt=""></td>
+		<td rowspan="3">
+			<img src="{{url_for('static',filename='images/layout/MyPortfolio_13.gif')}}" width="77" height="500" alt=""></td>
+		<td colspan="2" rowspan="3">
+			<img src="{{url_for('static',filename='images/layout/MyPortfolio_14.gif')}}" width="77" height="500" alt=""></td>
+		<td colspan="5">
+			<img src="{{url_for('static',filename='images/layout/MyPortfolio_15.jpg')}}" width="563" height="45" alt=""></td>
+		<td colspan="2" rowspan="3">
+			<img src="{{url_for('static',filename='images/layout/MyPortfolio_16.gif')}}" width="77" height="500" alt=""></td>
+		<td rowspan="3">
+			<img src="{{url_for('static',filename='images/layout/MyPortfolio_17.gif')}}" width="77" height="500" alt=""></td>
+		<td rowspan="3">
+		<img src="{{url_for('static',filename='images/layout/MyPortfolio_18.gif')}}" width="76" height="500" alt=""></td>
 	</tr>
 	<tr>
-		<td colspan="5" width="563" >
+		<td colspan="5" width="563" height="378">
 		{% block body  %}
 		{% endblock %}
 			</td>

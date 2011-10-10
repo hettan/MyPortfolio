@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<title>My Portfolio</title>
+		<link rel="stylesheet" href="style/style.css">
+	</head>
+	<body>
+		<ul class="navbar">
+ 		 	<li><a href="/">Main page</a>
+		  <li><a href="/techniques">Techniques</a>
+		  <li><a href="/list">List</a>
+		</ul>
+
+		<h1>MAIN PAGE</h1>
+		<address>Sign Jacob</address>
+
+		{% block body  %}
+		{% endblock %}
+
+	</body>
+</html>

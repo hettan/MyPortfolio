@@ -1,7 +1,7 @@
 {% extends "index.html" %}
 {% block body %}
 <body>
-  <table><tr><td>
+  <table height="500"><tr><td>
 	<b>Sorting</b></td></tr>
   <form method="post" action="/list/" id="myform">
     <tr><td>
@@ -18,7 +18,7 @@
     <b>Searching</b></td></td>
     <tr><td>
     <input type="text" name="search">
-    <input type="submit" name="ok" value="sort">
+    <input type="submit" name="ok" value="search">
     </td></tr>
     <tr><td>
     <a href="#" onclick="javascript: document.getElementById('checkboxes').style.visibility='visible'">Advanced search</a>
@@ -31,9 +31,9 @@
     <input type="checkbox" name="search_field[4]" value="end_date">End date
     </td></tr><tr><td>
     <input type="checkbox" name="search_field[5]" value="course_id">Course code
-    <input type="checkbox" name="search_field[6]" value="course_name">Course name
+    <input type="checkbox" name="search_field[6]" value="course_name" checked="checked">Course name
     <input type="checkbox" name="search_field[7]" value="academic_credits">Academic credits
-    <input type="checkbox" name="search_field[8]" value="techniques_used">Techniques used
+    <input type="checkbox" name="search_field[8]" value="techniques_used" checked="checked">Techniques used
     </td></tr>
     <tr><td>
     <input type="checkbox" name="search_field[9]" value="short_description">Short description
@@ -49,7 +49,8 @@
 	<td><u>Short description</u></td></tr>
 		{% for dict in data %}
 			<tr><td><a href="/project/{{dict['project_no']}}">{{dict['project_name']}}</a></td>
-				<td>{{dict['short_description']}}</td></tr>
+				<td>{{dict['short_description']}}</td>
+			        <td> <img src= "{{ url_for('static', filename='images/' + dict['small_image'])}}"></img></td></tr>
 		{% endfor %}
 	</table>
 </body>

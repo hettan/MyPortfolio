@@ -1,5 +1,5 @@
-project_name,project_no,start_date,end_date,course_id,course_name,academic_credits,techniques_used,short_description,long_description,small_image,big_image,group_size,external_link,lulz_had
-"python data-module test script",1,2009-09-05,2009-09-06,TDP003,"OKÄNT","WUT?","python","no","no no no","X","XXX",2,"YY",many
-"NEJ",3,2009-09-07,2009-09-08,TDP003,"OKÄNT","WUT?","csv,python,c++","no","no no no","X","XXX",4,"YY",few
-2007,2,2009-09-08,2009-09-09,TDP003,"OKÄNT","WUT?","python,ada","no","no no no","X","XXX",6,"YY",medium
-",",4,2009-09-06,2009-09-07, ","HOHO","WUT?","","no","no no no","X","XXX",8,"YY",over 9000
+"project_name","project_no","start_date","end_date","course_id","course_name","academic_credits","techniques_used","short_description","long_description","small_image","big_image","group_size","external_link","lulz_had"
+"python data-module test script",1,"2009-09-05","2009-09-06","TDP003","OKÄNT","WUT?","python","no","no no no","x.png","xxx.jpg",2,"YY","many"
+"NEJ",3,"2009-09-07","2009-09-08","TDP003","OKÄNT","WUT?","csv,python,c++","no","no no no","x.png","xxx.jpg",4,"YY","few"
+2007,2,"2009-09-08","2009-09-09","TDP003","OKÄNT","WUT?","python,ada","no","no no no","x.png","xxx.jpg",6,"YY","medium"
+"MyFlaskProject",4,"2011-09-01","2011-10-21","TDP003","Python project","N/A","python,flask,jinja2","A online web portfolio for listing all projects","fgdslfgöldsfg sdfgldsflg ldsfgdsl fgldsf lhglfgldfgh l lfdglhödfl. Ghkfdlgh lldgh . Dfgh fgh d sdk ,d df    fdsgdfg,  fdsgkdldsfg ,fg fdg dfg.ds sdfsdgfdsgdsfgesgfdsfgdsfgds.sfdg  dsfgdsfg  adfsetitfsr d kd  ldsdk  fkgf sdlsf dfkg lsldf g kfs  slsdlf dksfgidf.","x.png","xxx.jpg",1,"YY","medium"

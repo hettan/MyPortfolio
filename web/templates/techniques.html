@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{% block body %}
+<body>
+  <form method="post" action="/techniques/">
+	<table cellpadding=2>
+	{% for dic in data %}
+	   <tr><td>
+	    <b><u>{{ dic['name'] }}</u></b>
+	    {% for tech in dic['projects'] %}
+	    <br><a href="/project/{{ tech['id'] }}"> {{tech['name']}}</a>
+	    {% endfor %}
+	    <br><br><br>
+	   </td></tr>  
+	{% endfor %}
+	</table>
+</body>
+{% endblock %}

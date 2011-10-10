@@ -1,16 +1,24 @@
+{% extends "index.html" %}
 {% block body %}
-<table cellpadding="20">
-  {% for value in data%}
-    <td>
-    {{ value }}
-    </td>
-  {% endfor %}
-    <tr>
-  {% for value in data%}
-    <td>
-    {{ data[value] }}
-    </td>
-  {% endfor %}
-    </tr>
+<body>
+<table>
+  <tr><td>
+      <h1> {{ data['project_name'] }}</h1>
+  </td></tr>
+  <tr><td>
+          <img src="{{ url_for('static',filename='images/' + data['big_image']) }}"
+  </td></tr>
+  <tr><td>Start date: {{ data['start_date'] }}<br>
+          End date: {{ data['end_date'] }} <br><br>
+          Used techniques: {{ ", ".join(data['techniques_used']) }} <br><br>
+          Group Size: {{ data['group_size'] }}<br>
+          Course name: {{ data['course_name']}}<br>
+	  Course id: {{ data['course_id'] }}<br>
+	  Academic Credits: {{ data['academic_credits'] }}
+   
+  </td></tr>
+  <tr><td> {{ data['long_description'] }}
+  </td></tr>
 </table>
+</body>
 {% endblock %}

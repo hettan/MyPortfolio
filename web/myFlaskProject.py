@@ -48,7 +48,12 @@ def list_projects():
     dbdata = data.retrieve_projects(sort_order=sort_order, sort_by=sort_by, search_fields=search_fields, search=search)
     return render_template('list.html',data = dbdata[1])
 
-      #onChange="javascript: submit()
+@app.route("/techniques/", methods=['GET','POST'])
+def techniques():
+    data.init()
+    return render_template('techniques.html', data = data.retrieve_technique_stats()[1])
+
+#NOTES  onChange="javascript: submit()
     
     
 
