@@ -1,6 +1,6 @@
 #coding: UTF-8
 
-from flask import Flask, request, url_for, render_template #For Flask
+from flask import Flask, request, url_for, render_template
 import data #Import the API
 from time import gmtime, strftime #For timestamps in log-file
 
@@ -43,35 +43,41 @@ def show_project(proj_id):
 
 @app.route("/list/", methods=['GET','POST'])
 def list_projects():
-    global sort_order
     data.init()
     add_log('database initiated')
+
+    ###Standard values for data.retrieve_projects()
     sort_order = "asc"
     sort_by = "project_name"
     search_fields = []
-    search = None
+    search = ""
+    filter_techniques = []
+    ###End standard values
+    techniques = data.retrieve_techniques()[1]#Used for the filtering and listing all techniques
+
     if request.method == "POST":
-       # try
-        try:
-            if request.form["ok"]:
-                #Sort
-                sort_by = request.form['sort_by_value']
-                sort_order = request.form['sort_order']   
-                #Search
-                search = request.form['search']
-                search = search.encode('ascii')
+        if request.form["ok"]:
+        # if request.form.has_key('search'):
+            search = request.form['search']
+            search = search.encode('ascii')
+            if len(search) > 0:
                 for i in xrange(1, 14):
-                    try:#Need try to make sure we continue to verify all the search_fields
-                        x = 'search_field['+ str(i)+']'
-                        search_fields.append(request.form[x])
-                    except:
-                        pass
-                add_log('location=/list/, action initiated: sort_by=' + sort_by + ', sort_order=' + sort_order + ', search=' + search + ', search_fields=' + " ".join(search_fields))
-        except: pass
+                    checkbox_name = 'search_field['+ str(i)+']'
+                    if request.form.has_key(checkbox_name):
+                        search_fields.append(request.form[checkbox_name])
+            #Sort
+            sort_by = request.form['sort_by_value']
+            sort_order = request.form['sort_order']
+            #Filter techniques
+            for tech in techniques:
+                if request.form.has_key(tech):
+                    filter_techniques.append(tech)
+            add_log('location=/list/, action initiated: sort_by=' + sort_by + ', sort_order=' + sort_order + ', search=' +search + ', search_fields=' + " ".join(search_fields) + ', techniques=' + " ".join(filter_techniques))
+
     else: add_log("location=/list/")
-    dbdata = data.retrieve_projects(sort_order=sort_order, sort_by=sort_by, search_fields=search_fields, search=search)
+    dbdata = data.retrieve_projects(sort_order=sort_order, sort_by=sort_by, search_fields=search_fields, search=search, techniques=filter_techniques)
     if read_error_code(dbdata[0]) == "ok":
-        return render_template('list.html',data = dbdata[1])
+        return render_template('list.html',data = dbdata[1], techniques = techniques)
     else: return read_error_code(dbdata[0])
 
 @app.route("/techniques/", methods=['GET','POST'])

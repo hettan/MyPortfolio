@@ -1,28 +1,11 @@
 {% extends "index.html" %}
 {% block body %}
 <body>
-  <table height="500"><tr><td>
-	<b>Sorting</b></td></tr>
-  <form method="post" action="/list/" id="myform">
-    <tr><td>
-    <select name="sort_by_value">
-      <option value="project_name">Project name</option> 
-      <option value="short_description">Description</option>
-    </select>
-    <select name="sort_order">
-      <option value="asc">Asc</option>
-      <option value="desc">Desc</option>
-    </select>
-    </td></tr>
-    <tr><td><br><br>
-    <b>Searching</b></td></td>
-    <tr><td>
+    <form method="post" action="/list/" id="myform">
+    <table height="500"><tr><td>
+    <b>Searching</b><br>
     <input type="text" name="search">
-    <input type="submit" name="ok" value="search">
-    </td></tr>
-    <tr><td>
     <a href="#" onclick="javascript: document.getElementById('checkboxes').style.visibility='visible'">Advanced search</a>
-    </td></tr></table>
     <table id="checkboxes" style="visibility: hidden">
     <tr><td>
     <input type="checkbox" name="search_field[1]" checked="checked" value="project_name">Project name
@@ -42,8 +25,23 @@
     <input type="checkbox" name="search_field[12]" value="external_link">External links
     <input type="checkbox" name="search_field[13]" value="lulz_had">Comments
     </td></tr>
-  </form>
-  </table><br><br>
+    </table>
+	<b>Sorting</b><br>
+    <select name="sort_by_value">
+      <option value="project_name">Project name</option> 
+      <option value="short_description">Description</option>
+    </select>
+    <select name="sort_order">
+      <option value="asc">Asc</option>
+      <option value="desc">Desc</option>
+    </select>
+    <br><br><b>Filter techniques: </b><br>
+    {% for tech in techniques %}
+       <input type="checkbox" name="{{tech}}" value="{{tech}}">{{tech}}</option>
+    {% endfor %}
+    <br><br><input type="submit" name="ok" value="ok"></td></tr></table>
+
+  </form><br><br>
 	<table cellpadding=2>
 	<tr><td><u>Project name</u></td>
 	<td><u>Short description</u></td></tr>

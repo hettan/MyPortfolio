@@ -1,75 +1,38 @@
-2011-10-10 14:56:49# database initiated
-2011-10-10 14:56:49# location=/
-2011-10-10 14:56:50# database initiated
-2011-10-10 14:56:50# location=/list/
-2011-10-10 14:56:52# database initiated
-2011-10-10 14:56:52# location=/project/4
-2011-10-10 14:56:52# database initiated
-2011-10-10 14:56:52# location=/project/spacer.gif
-2011-10-10 14:58:01# database initiated
-2011-10-10 14:58:01# location=/
-2011-10-10 14:58:03# database initiated
-2011-10-10 14:58:03# location=/list/
-2011-10-10 14:58:11# database initiated
-2011-10-10 14:58:11# location=/project/4
-2011-10-10 14:58:11# database initiated
-2011-10-10 14:58:11# location=/project/spacer.gif
-2011-10-10 14:58:32# database initiated
-2011-10-10 14:58:32# location=/techniques/
-2011-10-10 14:58:38# database initiated
-2011-10-10 14:58:38# location=/project/1
-2011-10-10 14:58:38# database initiated
-2011-10-10 14:58:38# location=/project/spacer.gif
-2011-10-10 14:58:48# database initiated
-2011-10-10 14:58:48# location=/
-2011-10-10 15:03:47# ****program start****
-2011-10-10 15:07:09# ****program start****
-2011-10-10 15:07:09# ****program start****
-2011-10-10 15:07:12# database initiated
-2011-10-10 15:07:12# location=/list/
-2011-10-10 15:07:15# database initiated
-2011-10-10 15:07:15# location=/list/, action initiated: sort_by=project_name, sort_order=asc, search=ghghfr, search_fields=project_name course_name techniques_used
-2011-10-10 15:07:19# database initiated
-2011-10-10 15:07:19# location=/list/, action initiated: sort_by=project_name, sort_order=asc, search=fghfgj, search_fields=project_name course_name techniques_used
-2011-10-10 15:07:36# database initiated
-2011-10-10 15:07:36# location=/
-2011-10-10 15:08:48# ****program start****
-2011-10-10 15:09:03# ****program start****
-2011-10-10 15:09:11# ****program start****
-2011-10-10 15:09:14# ****program start****
-2011-10-10 15:10:18# ****program start****
-2011-10-10 15:11:32# ****program start****
-2011-10-10 15:11:56# database initiated
-2011-10-10 15:11:56# location=/techniques/
-2011-10-10 15:11:57# database initiated
-2011-10-10 15:11:57# location=/project/3
-2011-10-10 15:12:01# database initiated
-2011-10-10 15:12:01# location=/project/6
-2011-10-10 15:13:53# ****program start****
-2011-10-10 15:14:10# database initiated
-2011-10-10 15:14:10# location=/
-2011-10-10 15:14:12# database initiated
-2011-10-10 15:14:12# location=/list/
-2011-10-10 15:14:15# database initiated
-2011-10-10 15:14:15# location=/list/
-2011-10-10 15:14:16# database initiated
-2011-10-10 15:14:16# location=/techniques/
-2011-10-10 15:14:21# database initiated
-2011-10-10 15:14:21# location=/project/2
-2011-10-10 15:14:23# database initiated
-2011-10-10 15:14:23# location=/project/7
-2011-10-10 15:14:23# error=2
-2011-10-10 15:14:23# error=2
-2011-10-10 15:14:30# database initiated
-2011-10-10 15:14:30# location=/
-2011-10-10 15:14:58# database initiated
-2011-10-10 15:14:58# location=/techniques/
-2011-10-10 15:21:44# ****program start****
-2011-10-10 15:22:50# ****program start****
-2011-10-10 15:22:57# ****program start****
-2011-10-10 15:23:41# ****program start****
-2011-10-10 15:24:03# ****program start****
-2011-10-10 15:24:11# ****program start****
-2011-10-10 15:25:33# ****program start****
-2011-10-10 15:25:57# ****program start****
-2011-10-10 15:26:24# ****program start****
+2011-10-11 08:55:31# database initiated
+2011-10-11 08:55:31# location=/project/2
+2011-10-11 08:57:11# database initiated
+2011-10-11 08:57:11# location=/
+2011-10-11 09:01:46# database initiated
+2011-10-11 09:01:46# location=/
+2011-10-11 09:05:24# database initiated
+2011-10-11 09:05:24# location=/
+2011-10-11 09:06:42# database initiated
+2011-10-11 09:06:42# location=/
+2011-10-11 09:08:34# database initiated
+2011-10-11 09:08:34# location=/
+2011-10-11 09:08:34# database initiated
+2011-10-11 09:08:34# location=/
+2011-10-11 09:08:35# database initiated
+2011-10-11 09:08:35# location=/
+2011-10-11 09:08:35# database initiated
+2011-10-11 09:08:35# location=/
+2011-10-11 09:08:36# database initiated
+2011-10-11 09:08:36# location=/
+2011-10-11 09:08:36# database initiated
+2011-10-11 09:08:36# location=/
+2011-10-11 09:09:37# database initiated
+2011-10-11 09:09:37# location=/
+2011-10-11 09:09:38# database initiated
+2011-10-11 09:09:38# location=/
+2011-10-11 09:09:39# database initiated
+2011-10-11 09:09:39# location=/
+2011-10-11 09:10:45# database initiated
+2011-10-11 09:10:45# location=/
+2011-10-11 09:10:47# database initiated
+2011-10-11 09:10:47# location=/
+2011-10-11 09:10:48# database initiated
+2011-10-11 09:10:48# location=/
+2011-10-11 09:10:48# database initiated
+2011-10-11 09:10:48# location=/
+2011-10-11 09:10:48# database initiated
+2011-10-11 09:10:48# location=/

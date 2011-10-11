@@ -27,5 +27,5 @@ a:link {
   color: blue }
 a:visited {
   color: purple }
-bg_strech {
+.strech {	
   background-repeat: repeat-y;}

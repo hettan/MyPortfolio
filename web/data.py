@@ -18,10 +18,10 @@ def init(): #Initialize the database
  
 def conv_to_unicode(data): #Convert all dicts to UTF-8
     converted_db = []
-    for rows in data:
+    for dic in data:
         conv_dict = {}
-        for k in rows:
-             conv_dict[unicode(k, 'utf-8')] = unicode(rows[k], 'utf-8')
+        for row in dic:
+             conv_dict[unicode(row, 'utf-8')] = unicode(dic[row], 'utf-8')
         converted_db.append(conv_dict)    
     return converted_db
 
@@ -53,14 +53,14 @@ def lookup_project(search_id): #Lookup a specified project
 def retrieve_techniques(): #Lists all techniques
     if globdb != None:
         techs = []
-        temp = [] #Used as a temporary variable
-        for rows in globdb:
-            temp.append(rows['techniques_used'])
-        for i in temp:
-            for z in i:
-                if not z in techs:
-                    if z != "":
-                        techs.append(z)
+        compare_techs = [] #Used as a temporary variable
+        for dic in globdb:
+            compare_techs.append(dic['techniques_used'])
+        for row in compare_techs:
+            for value in row:
+                if not value in techs:
+                    if value != "":
+                        techs.append(value)
         techs.sort()
         return (0, techs)
     else: return (1, None)
@@ -70,32 +70,23 @@ def retrieve_projects(sort_by='start_date', sort_order='asc', techniques=None, s
         try:
             db = globdb
             #techniques
-            for field in search_fields: #If techniques is being searched for, add techniques as a parameter aswell
-                if field == 'techniques_used':
-                    techniques = []
-                    techniques.append(search)
             if techniques != None and techniques != []:
                 db = [rows for rows in db if len(set(rows['techniques_used']) & set(techniques)) == len(techniques)]
                 db_tech = db #db_tech is used for the search
-            else: db_tech=[]
+            else: db_tech=globdb
         
             #search & search_fields
-            if search != None and search_fields != None:
+            if search != None and search_fields != None and search != "" and search_fields != []:
                 mergedb = []
                 # First sorting is for integers in dict
-                db = [rows for rows in globdb if [value for value in search_fields if type(rows[value]) == type(1) and str(rows[value]) == search.lower()]]
+                db = [rows for rows in db_tech if [value for value in search_fields if type(rows[value]) == type(1) and str(rows[value]) == search.lower()]]
                 # Second sorting is for strings in dict
-                mergedb = [rows for rows in globdb if [value for value in search_fields if type(rows[value]) == type(unicode("string", 'utf-8')) and rows[value].lower() == unicode(search.lower(), 'utf-8')]]
-             #Add the results to main db
+                mergedb = [rows for rows in db_tech if [value for value in search_fields if type(rows[value]) == type(unicode("string", 'utf-8')) and rows[value].lower() == unicode(search.lower(), 'utf-8')]]
+ 
+#Add the results to main db
                 for dic in mergedb:
                     if not dic in db:
                         db.append(dic)
-
-            #Add the search from techniques_used aswell
-                for dic in db_tech:
-                        if not dic in db:
-                            db.append(dic)
-
             #sort_by & sort_order
             if sort_order == 'asc':
                 db.sort(key=operator.itemgetter(sort_by))
@@ -109,17 +100,17 @@ def retrieve_technique_stats(): #Check the stats for each used technique
     if globdb != None:
         db = []
         techs = retrieve_techniques()[1]
-        for tec in techs:
-            projlist = []
+        for tech in techs:
+            proj_list = []
             counter = 0
-            x = [rows for rows in globdb if len(set(rows['techniques_used']) & set(tec.split())) == len(tec.split())]
-            for y in x:
-                projdict = {}
-                projdict['id'] = y['project_no']
-                projdict['name'] = y['project_name']
+            proj_match = [dic for dic in globdb if len(set(dic['techniques_used']) & set(tech.split())) == len(tech.split())] #Generates a list with all projects matching the technique
+            for proj in proj_match:
+                proj_dict = {}
+                proj_dict['id'] = proj['project_no']
+                proj_dict['name'] = proj['project_name']
                 counter += 1
-                projlist.append(projdict)
-            projlist.sort(key=operator.itemgetter('name'))
-            db.append({'count':counter, 'name':tec,'projects':projlist})
+                proj_list.append(proj_dict)
+            proj_list.sort(key=operator.itemgetter('name'))
+            db.append({'count':counter, 'name':tech,'projects':proj_list})
         return(0, db)     
     else: return (1, None)
