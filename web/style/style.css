@@ -1,9 +1,5 @@
 body {
-  padding-left: 11em;
-  font-family: Georgia, "Times New Roman",
-        Times, serif;
-  color: black;
-  background-color: white}}
+  align: center;
    }
 ul.navbar {
   list-style-type: none;

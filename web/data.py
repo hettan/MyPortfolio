@@ -73,20 +73,21 @@ def retrieve_projects(sort_by='start_date', sort_order='asc', techniques=None, s
             if techniques != None and techniques != []:
                 db = [rows for rows in db if len(set(rows['techniques_used']) & set(techniques)) == len(techniques)]
                 db_tech = db #db_tech is used for the search
-            else: db_tech=globdb
-        
-            #search & search_fields
-            if search != None and search_fields != None and search != "" and search_fields != []:
-                mergedb = []
-                # First sorting is for integers in dict
-                db = [rows for rows in db_tech if [value for value in search_fields if type(rows[value]) == type(1) and str(rows[value]) == search.lower()]]
-                # Second sorting is for strings in dict
-                mergedb = [rows for rows in db_tech if [value for value in search_fields if type(rows[value]) == type(unicode("string", 'utf-8')) and rows[value].lower() == unicode(search.lower(), 'utf-8')]]
+            else: db_tech = db
+            #search and search_fields
+            if search != None and search != "":
+                if search_fields != None and search_fields != []:
+                    mergedb = []
+                    # First sorting is for integers in dict
+                    db = [rows for rows in db_tech if [value for value in search_fields if type(rows[value]) == type(1) and str(rows[value]) == search.lower()]]
+                    # Second sorting is for strings in dict
+                    mergedb = [rows for rows in db_tech if [value for value in search_fields if type(rows[value]) == type(unicode("string", 'utf-8')) and rows[value].lower() == unicode(search.lower(), 'utf-8')]]
  
 #Add the results to main db
-                for dic in mergedb:
-                    if not dic in db:
-                        db.append(dic)
+                    for dic in mergedb:
+                        if not dic in db:
+                            db.append(dic)
+                else: return (0, [])
             #sort_by & sort_order
             if sort_order == 'asc':
                 db.sort(key=operator.itemgetter(sort_by))

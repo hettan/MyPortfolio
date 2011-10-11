@@ -27,7 +27,6 @@ def read_error_code(error_code):
 @app.route("/")
 def layout():
     data.init()
-    add_log('database initiated')
     add_log('location=/')
     return render_template('index.html')
 
@@ -35,7 +34,6 @@ def layout():
 def show_project(proj_id):
     data.init()
     dbdata = data.lookup_project(int(proj_id))
-    add_log('database initiated')
     add_log('location=/project/' + proj_id)
     if read_error_code(dbdata[0]) == "ok":
         return render_template('project.html', data = dbdata[1])
@@ -44,8 +42,6 @@ def show_project(proj_id):
 @app.route("/list/", methods=['GET','POST'])
 def list_projects():
     data.init()
-    add_log('database initiated')
-
     ###Standard values for data.retrieve_projects()
     sort_order = "asc"
     sort_by = "project_name"
@@ -84,7 +80,6 @@ def list_projects():
 def techniques():
     data.init()
     dbdata = data.retrieve_technique_stats()
-    add_log('database initiated')
     add_log('location=/techniques/')
     if read_error_code(dbdata[0]) == "ok":
         return render_template('techniques.html', data = dbdata[1])

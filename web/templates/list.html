@@ -2,7 +2,7 @@
 {% block body %}
 <body>
     <form method="post" action="/list/" id="myform">
-    <table height="500"><tr><td>
+    <table height="563" width="378"><tr><td>
     <b>Searching</b><br>
     <input type="text" name="search">
     <a href="#" onclick="javascript: document.getElementById('checkboxes').style.visibility='visible'">Advanced search</a>
@@ -42,7 +42,7 @@
     <br><br><input type="submit" name="ok" value="ok"></td></tr></table>
 
   </form><br><br>
-	<table cellpadding=2>
+	<table cellpadding=2 height="563" width="378">
 	<tr><td><u>Project name</u></td>
 	<td><u>Short description</u></td></tr>
 		{% for dict in data %}
