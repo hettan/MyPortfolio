@@ -1,20 +1,18 @@
 #coding: UTF-8
 
-from flask import Flask, request, url_for, render_template
+from flask import Flask, request, url_for, render_template #Need this to use Flask
 import data #Import the API
 from time import gmtime, strftime #For timestamps in log-file
 
 #config
 app = Flask(__name__)
 
-sort_order = "asc"
-
-def add_log(log):
+def add_log(log): #Used for writing in logfile
     f = open('myportfolio.log', 'a')
     f.write(strftime("%Y-%m-%d %H:%M:%S", gmtime())+"# " + log + '\n')
     f.close()
 
-def read_error_code(error_code):
+def read_error_code(error_code):#Converts error-codes to error-messages
     if error_code == 0:
         return "ok"
     elif error_code == 1:
@@ -25,13 +23,13 @@ def read_error_code(error_code):
         return "requested project does not exist"
 
 @app.route("/")
-def layout():
+def layout(): #For the static main/index page
     data.init()
     add_log('location=/')
     return render_template('main.html')
 
 @app.route("/project/<proj_id>")
-def show_project(proj_id):
+def show_project(proj_id): #Sends requested project to template
     data.init()
     dbdata = data.lookup_project(int(proj_id))
     add_log('location=/project/' + proj_id)
@@ -40,7 +38,7 @@ def show_project(proj_id):
     else: return read_error_code(dbdata[0])
 
 @app.route("/list/", methods=['GET','POST'])
-def list_projects():
+def list_projects(): #Handles the search/sort/filter function and return result to template
     data.init()
     ###Standard values for data.retrieve_projects()
     sort_order = "asc"
@@ -53,7 +51,6 @@ def list_projects():
 
     if request.method == "POST":
         if request.form["ok"]:
-        # if request.form.has_key('search'):
             search = request.form['search']
             search = search.encode('ascii')
             if len(search) > 0:
@@ -77,7 +74,7 @@ def list_projects():
     else: return read_error_code(dbdata[0])
 
 @app.route("/techniques/", methods=['GET','POST'])
-def techniques():
+def techniques(): #Sends all techniques used to template
     data.init()
     dbdata = data.retrieve_technique_stats()
     add_log('location=/techniques/')

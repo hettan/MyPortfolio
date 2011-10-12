@@ -241,3 +241,37 @@
 2011-10-12 08:13:10# location=/list/
 2011-10-12 08:13:17# location=/
 2011-10-12 08:13:17# location=/
+2011-10-12 08:23:50# ****program start****
+2011-10-12 08:23:50# ****program start****
+2011-10-12 08:23:53# location=/
+2011-10-12 08:23:54# location=/
+2011-10-12 08:23:55# location=/list/
+2011-10-12 08:23:55# location=/list/
+2011-10-12 08:23:58# location=/list/, action initiated: sort_by=project_name, sort_order=asc, search=, search_fields=, techniques=c++
+2011-10-12 08:23:58# location=/list/
+2011-10-12 08:24:01# location=/list/, action initiated: sort_by=project_name, sort_order=asc, search=, search_fields=, techniques=python
+2011-10-12 08:24:02# location=/list/
+2011-10-12 08:24:06# location=/list/, action initiated: sort_by=project_name, sort_order=asc, search=NEJ, search_fields=project_name course_name techniques_used, techniques=
+2011-10-12 08:24:06# location=/list/
+2011-10-12 08:24:10# location=/project/3
+2011-10-12 08:24:10# location=/project/3
+2011-10-12 08:24:14# location=/techniques/
+2011-10-12 08:24:14# location=/techniques/
+2011-10-12 08:24:18# location=/list/
+2011-10-12 08:24:18# location=/list/
+2011-10-12 08:24:19# location=/
+2011-10-12 08:24:19# location=/
+2011-10-12 08:24:48# location=/list/
+2011-10-12 08:24:49# location=/list/
+2011-10-12 08:24:52# location=/list/, action initiated: sort_by=project_name, sort_order=desc, search=, search_fields=, techniques=
+2011-10-12 08:24:52# location=/list/
+2011-10-12 08:26:19# location=/
+2011-10-12 08:26:19# location=/
+2011-10-12 08:27:17# location=/
+2011-10-12 08:27:17# location=/
+2011-10-12 08:27:18# location=/list/
+2011-10-12 08:27:18# location=/list/
+2011-10-12 08:27:19# location=/techniques/
+2011-10-12 08:27:19# location=/techniques/
+2011-10-12 08:27:22# location=/
+2011-10-12 08:27:22# location=/
