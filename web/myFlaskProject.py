@@ -28,7 +28,7 @@ def read_error_code(error_code):
 def layout():
     data.init()
     add_log('location=/')
-    return render_template('index.html')
+    return render_template('main.html')
 
 @app.route("/project/<proj_id>")
 def show_project(proj_id):

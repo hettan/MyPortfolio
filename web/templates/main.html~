@@ -6,7 +6,7 @@
       <h1> {{ data['project_name'] }}</h1>
   </td></tr>
   <tr><td>
-          <img src="{{ url_for('static',filename='images/' + data['big_image']) }}" \>
+          <img src="{{ url_for('static',filename='images/' + data['big_image']) }}"
   </td></tr>
   <tr><td>Start date: {{ data['start_date'] }}<br>
           End date: {{ data['end_date'] }} <br><br>
