@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 def add_log(log): #Used for writing in logfile
     f = open('myportfolio.log', 'a')
-    f.write(strftime("%Y-%m-%d %H:%M:%S", gmtime())+"# " + log + '\n')
+    f.write(strftime("%Y-%m-%d %H:%M:%S", gmtime())+"# " + log.encode('utf-8') + '\n')
     f.close()
 
 def read_error_code(error_code):#Converts error-codes to error-messages
@@ -52,7 +52,6 @@ def list_projects(): #Handles the search/sort/filter function and return result 
     if request.method == "POST":
         if request.form["ok"]:
             search = request.form['search']
-            search = search.encode('ascii')
             if len(search) > 0:
                 for i in xrange(1, 14):
                     checkbox_name = 'search_field['+ str(i)+']'
@@ -68,7 +67,7 @@ def list_projects(): #Handles the search/sort/filter function and return result 
             add_log('location=/list/, action initiated: sort_by=' + sort_by + ', sort_order=' + sort_order + ', search=' +search + ', search_fields=' + " ".join(search_fields) + ', techniques=' + " ".join(filter_techniques))
 
     else: add_log("location=/list/")
-    dbdata = data.retrieve_projects(sort_order=sort_order, sort_by=sort_by, search_fields=search_fields, search=search, techniques=filter_techniques)
+    dbdata = data.retrieve_projects(sort_order=sort_order, sort_by=sort_by, search_fields=search_fields, search=search.encode('utf-8'), techniques=filter_techniques)
     if read_error_code(dbdata[0]) == "ok":
         return render_template('list.html',data = dbdata[1], techniques = techniques)
     else: return read_error_code(dbdata[0])
