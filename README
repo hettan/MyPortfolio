@@ -1,6 +1,8 @@
-Project_name:MyPortfolio
+TDP003, Project: Personal Computer Environment
+Project name:MyPortfolio
 Author:Jacob Holm
 E-mail: jacobholm89@gmail.com
+Date: 2011-10-15
 
 
 System package:
@@ -17,13 +19,14 @@ The program is written in Python with Flask compability using Jinja2 as a html t
 Installation guide:
 This program is using Python, Flask and Jinja2. We need to make sure these are installed for the program to work.
 
-Follow the guide how to install Python on:
-Follow the guide how to install Flask on:
-Follow the guide how to install Jinja2 on:
+Download and install Python on: http://www.python.org/download/
+Follow the guide how to install Flask on: http://flask.pocoo.org/docs/installation/
+Follow the guide how to install Jinja2 on: http://jinja.pocoo.org/docs/intro/#installation
 
 copy MyPortfolio folder to your home directory.
 1.	In the terminal, map to MyProject/web (using cd /MyProject/web).
 2.	start the program using commandline "python myFlaskProject.py" (without any "")
 
 
-
+Editing the database:
+Database instruction is found in USING_DATABASE file, same directory as the README file.

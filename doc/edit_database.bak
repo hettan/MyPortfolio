@@ -1,0 +1,20 @@
+The databasefile is located in web/data.csv file.
+In order to add/remove/edit you will have to know the basics behind this type of databasefile.
+
+CSV files is using commas(,) as seperators.
+The first enry defines the names of the fields.
+Rest if the entries is values for that entry.
+
+There's some rules on what values you can use for certain fields.
+All fields should be as a string mening text within "" except:
+project_id: Must be a project_id unique number
+techniques_used: Should still use "" but if there's more then one technique you have to use comma as a seperator ex, "flask,python,jinja2".
+group_size: Must be a number
+
+
+If you don't understand the basics you can use this template and just replace the values with what you want it to be.
+
+"Replace with the project name",replace with a unique id(number) for the project ex(4),"Replace with start date of the project","Replace with end date of the project","Replace with course code ex(TPD003)","Replace with course name","N/A","Replace with techniques used, use comma as seperator if more then 1. ex(python,flask,jinja2)","Replace with project description","replace with filename of project thumbnail file located in web/static/images folder","replace with file name of project picture located in web/static/images folder",replace group size for the project (must be a number),"replace with external link for the project","replace with lulz_had, choose one of these three options (few, medium, many)"
+
+Here's an example of a finished entry:
+"MyFlaskProject",4,"2011-09-01","2011-10-21","TDP003","Python project","N/A","python,flask,jinja2","A online web portfolio for listing all projects","A online web portfolio for listing all projects and this is the full description","x.png","xxx.jpg",1,"YY","medium"

@@ -30,12 +30,14 @@ def layout(): #For the static main/index page
 
 @app.route("/project/<proj_id>")
 def show_project(proj_id): #Sends requested project to template
-    data.init()
-    dbdata = data.lookup_project(int(proj_id))
-    add_log('location=/project/' + proj_id)
-    if read_error_code(dbdata[0]) == "ok":
-        return render_template('project.html', data = dbdata[1])
-    else: return read_error_code(dbdata[0])
+    try:
+        data.init()
+        dbdata = data.lookup_project(int(proj_id))
+        add_log('location=/project/' + proj_id)
+        if read_error_code(dbdata[0]) == "ok":
+            return render_template('project.html', data = dbdata[1])
+        else: return read_error_code(dbdata[0])
+    except: return "Only accept digit as project number" #Exeption if string can't be converted to int, only accept digits
 
 @app.route("/list/", methods=['GET','POST'])
 def list_projects(): #Handles the search/sort/filter function and return result to template
