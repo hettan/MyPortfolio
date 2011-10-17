@@ -561,3 +561,15 @@
 2011-10-15 13:18:09# location=/techniques/
 2011-10-15 13:18:56# location=/project/4
 2011-10-15 13:18:56# location=/project/4
+2011-10-17 09:50:18# ****program start****
+2011-10-17 09:50:18# ****program start****
+2011-10-17 09:50:30# location=/
+2011-10-17 09:50:30# location=/
+2011-10-17 09:50:32# location=/list/
+2011-10-17 09:50:32# location=/list/
+2011-10-17 09:50:36# location=/list/, action initiated: sort_by=project_name, sort_order=asc, search=, search_fields=, techniques=python
+2011-10-17 09:50:36# location=/list/
+2011-10-17 09:50:43# location=/list/, action initiated: sort_by=project_name, sort_order=asc, search=python, search_fields=project_name course_name techniques_used, techniques=
+2011-10-17 09:50:43# location=/list/
+2011-10-17 09:50:47# location=/list/, action initiated: sort_by=project_name, sort_order=asc, search=c++, search_fields=project_name course_name techniques_used, techniques=
+2011-10-17 09:50:47# location=/list/
