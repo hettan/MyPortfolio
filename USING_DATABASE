@@ -2,14 +2,16 @@ The databasefile is located in web/data.csv file.
 In order to add/remove/edit you will have to know the basics behind this type of databasefile.
 
 CSV files is using commas(,) as seperators.
-The first enry defines the names of the fields.
+The first entry defines the names of the fields.
 Rest if the entries is values for that entry.
 
 There's some rules on what values you can use for certain fields.
 All fields should be as a string mening text within "" except:
-project_id: Must be a project_id unique number
+project_id: Must be a unique project_id number
 techniques_used: Should still use "" but if there's more then one technique you have to use comma as a seperator ex, "flask,python,jinja2".
 group_size: Must be a number
+start_date: ISO-8601 format, example; "2007-05-22"
+end_date: ISO-8601 format, example; "2007-05-22"
 
 
 If you don't understand the basics you can use this template and just replace the values with what you want it to be.
