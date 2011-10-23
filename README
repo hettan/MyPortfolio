@@ -23,9 +23,9 @@ Download and install Python on: http://www.python.org/download/
 Follow the guide how to install Flask on: http://flask.pocoo.org/docs/installation/
 Follow the guide how to install Jinja2 on: http://jinja.pocoo.org/docs/intro/#installation
 
-copy MyPortfolio folder to your home directory.
-1.	In the terminal, map to MyProject/web (using cd /MyProject/web).
-2.	start the program using commandline "python myFlaskProject.py" (without any "")
+
+1.	copy MyPortfolio folder to your home directory.
+2.	start the program by running myFlaskProject.py, located in the /web folder.
 
 
 Editing the database:
